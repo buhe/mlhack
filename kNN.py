@@ -19,3 +19,11 @@ def classify0(inX, dataSet, labels, k):
 		classCount[voteIlable] = classCount.get(voteIlable,0) + 1#遍历label ,并+1, 取前k个
 	sortedClassCount = sorted(classCount.iteritems(),key=operator.itemgetter(1),reverse=True)#根据label的数量排序
 	return sortedClassCount[0][0]#返回符合次数最多的label
+
+def autoNorm(dataSet):#归一化
+	minVals = dataSet.min(0)#矩阵最小
+	maxVals = dataSet.max(0)#矩阵最大
+	ranges = maxVals - minVals#差值
+	normDataSet = dataSet - tile(minValus,(m,1))#矩阵每项减去最小值
+	normDataSet = normDataSet / tile(ranges,(m,1))#再除以差值,结果都在0-1区间
+	return normDataSet, ranges, minVals
