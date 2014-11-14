@@ -57,7 +57,7 @@ def majorityCnt(classList):#出现最多的分类名称
 		classCount[vote] += 1
 	sortedClassCount = sorted(classCount.iteritems(),key=operator.itemgetter(1),reverse=True)
 	return sortedClassCount[0][0]
-	
+
 def createTree(dataSet,labels):
 	classList = [example[-1] for example in dataSet]#-1是列表中最后一个
 	if classList.count(classList[0]) == len(classList):#所有内容相同
@@ -75,8 +75,28 @@ def createTree(dataSet,labels):
 		myTree[bestFeatLabel][value] = createTree(splitDataSet(dataSet,bestFeat,value),subLabels)
 	return myTree	
 
+def classify(inputTree,featLabels,testVec):#testVes [1,0]
+	firstStr = inputTree.keys()[0]
+	secondDict = inputTree[firstStr]
+	featIndex = featLabels.index(firstStr)#找出这个特性是第几个属性
+	for key in secondDict.keys():
+		if testVec[featIndex] == key:#回答testVes的问题,是否正确,正确就继续
+			if type(secondDict[key]).__name__=='dict':#如果不是叶子节点则继续
+				classLabel = classify(secondDict[key],featLabels,testVec)
+			else:
+				classLabel = secondDict[key]
+	return classLabel
 
+def storeTree(inputTree,filename):
+	import pickle
+	fw = open(filename,'w')
+	pickle.dump(inputTree,fw)
+	fw.close()
 
+def grabTree(filename):
+	import pickle
+	fr = open(filename)
+	return pickle.load(fr)
 
 
 
