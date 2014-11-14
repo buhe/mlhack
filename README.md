@@ -9,4 +9,7 @@ mlhack
 ----
 ##朴素贝叶斯
 ###条件概率
+	P(gray|bucketB) = P(gray and bucketB) / P(bucketB)
+	条件概率,B桶中的灰球 = 灰球在所有桶中的概率 除以 球在B桶中的概率
+	1 / 3 = (1/7) / (3/7)
 
