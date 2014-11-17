@@ -73,6 +73,9 @@ def classifyNB(vec2Classify,p0Vec,p1Vec,pClass1):
 	else:
 		return 0;
 
+#计算类别(侮辱/非侮辱)在各个单词中出现的概率
+#计算方法是,等于每个词出现在某一类别概率 * 类别的概率 / 每个单词的概率(这里两边都相同，不影响大小)
+
 
 
 
