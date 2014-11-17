@@ -1,3 +1,4 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 mlhack
 ======
 
@@ -18,3 +19,6 @@ mlhack
 
 要计算的是类别(灰球)在向量中(这个简答例子用，向量只有一维就是A,B桶)的概率
 
+##Logistic回归
+###Sigmoid函数
+$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
