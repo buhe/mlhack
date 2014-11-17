@@ -20,4 +20,6 @@ mlhack
 
 ##Logistic回归
 ###Sigmoid函数
-$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+<img src="http://www.forkosh.com/mathtex.cgi? \Large z=\frac{1}{1+e^-z}">
+###梯度上升法
+
